@@ -411,8 +411,15 @@ char NeAACDecInit2(NeAACDecHandle hpDecoder,
         return -1;
     }
 
+    if (channels == 49) {
+        hDecoder->adts_header_present = 1;
+    }
+    else {
+         hDecoder->adts_header_present = 0;
+    }
+	
     hDecoder->adif_header_present = 0;
-    hDecoder->adts_header_present = 0;
+    
 
     /* decode the audio specific config */
     rc = AudioSpecificConfig2(pBuffer, SizeOfDecoderSpecificInfo, &mp4ASC,
