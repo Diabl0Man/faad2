@@ -411,7 +411,7 @@ char NeAACDecInit2(NeAACDecHandle hpDecoder,
         return -1;
     }
 
-    if (channels == 49) {
+    if (*channels == 49) {
         hDecoder->adts_header_present = 1;
     }
     else {
